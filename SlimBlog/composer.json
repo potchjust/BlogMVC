@@ -1,0 +1,13 @@
+{
+    "name": "potchjust/slim-blog",
+    "description": "A blog project with slim 3",
+    "authors": [
+        {
+            "name": "POTCHONA Justin",
+            "email": "potchjust@gmail.com"
+        }
+    ],
+    "require": {
+        "slim/slim": "^3.11"
+    }
+}
