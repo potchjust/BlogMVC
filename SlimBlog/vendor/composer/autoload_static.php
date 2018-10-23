@@ -7,13 +7,17 @@ namespace Composer\Autoload;
 class ComposerStaticInitf2307da7649ba3879942c2dbd44b8d2d
 {
     public static $files = array (
+        '320cde22f66dd4f5d3fd621d3e88b98f' => __DIR__ . '/..' . '/symfony/polyfill-ctype/bootstrap.php',
+        '72142d7b40a3a0b14e91825290b5ad82' => __DIR__ . '/..' . '/cakephp/core/functions.php',
+        '0e6d7bf4a5811bfa5cf40c5ccd6fae6a' => __DIR__ . '/..' . '/symfony/polyfill-mbstring/bootstrap.php',
         '253c157292f75eb38082b5acb06f3f01' => __DIR__ . '/..' . '/nikic/fast-route/src/functions.php',
         'bd9634f2d41831496de0d3dfe4c94881' => __DIR__ . '/..' . '/symfony/polyfill-php56/bootstrap.php',
-        '320cde22f66dd4f5d3fd621d3e88b98f' => __DIR__ . '/..' . '/symfony/polyfill-ctype/bootstrap.php',
-        '0e6d7bf4a5811bfa5cf40c5ccd6fae6a' => __DIR__ . '/..' . '/symfony/polyfill-mbstring/bootstrap.php',
+        '028fdea3165c4ba1ecccc83b7fec69fc' => __DIR__ . '/..' . '/cakephp/collection/functions.php',
+        '948ad5488880985ff1c06721a4e447fe' => __DIR__ . '/..' . '/cakephp/utility/bootstrap.php',
         '6124b4c8570aa390c21fafd04a26c69f' => __DIR__ . '/..' . '/myclabs/deep-copy/src/DeepCopy/deep_copy.php',
         'b33e3d135e5d9e47d845c576147bda89' => __DIR__ . '/..' . '/php-di/php-di/src/functions.php',
         '7cca0da9604df282f16d129f538c9833' => __DIR__ . '/..' . '/digitalnature/php-ref/ref.php',
+        '2c102faa651ef8ea5874edb585946bce' => __DIR__ . '/..' . '/swiftmailer/swiftmailer/lib/swift_required.php',
     );
 
     public static $prefixLengthsPsr4 = array (
@@ -35,8 +39,13 @@ class ComposerStaticInitf2307da7649ba3879942c2dbd44b8d2d
             'Symfony\\Polyfill\\Php56\\' => 23,
             'Symfony\\Polyfill\\Mbstring\\' => 26,
             'Symfony\\Polyfill\\Ctype\\' => 23,
+            'Symfony\\Component\\Yaml\\' => 23,
+            'Symfony\\Component\\Filesystem\\' => 29,
+            'Symfony\\Component\\Console\\' => 26,
+            'Symfony\\Component\\Config\\' => 25,
             'SuperClosure\\' => 13,
             'Slim\\Views\\' => 11,
+            'Slim\\Flash\\' => 11,
             'Slim\\' => 5,
         ),
         'P' => 
@@ -45,6 +54,7 @@ class ComposerStaticInitf2307da7649ba3879942c2dbd44b8d2d
             'Psr\\Container\\' => 14,
             'PhpParser\\' => 10,
             'PhpDocReader\\' => 13,
+            'Phinx\\' => 6,
         ),
         'I' => 
         array (
@@ -54,6 +64,11 @@ class ComposerStaticInitf2307da7649ba3879942c2dbd44b8d2d
         'F' => 
         array (
             'FastRoute\\' => 10,
+            'Faker\\' => 6,
+        ),
+        'E' => 
+        array (
+            'Egulias\\EmailValidator\\' => 23,
         ),
         'D' => 
         array (
@@ -61,6 +76,19 @@ class ComposerStaticInitf2307da7649ba3879942c2dbd44b8d2d
             'DeepCopy\\' => 9,
             'DI\\Bridge\\Slim\\' => 15,
             'DI\\' => 3,
+        ),
+        'C' => 
+        array (
+            'Cake\\Utility\\' => 13,
+            'Cake\\Datasource\\' => 16,
+            'Cake\\Database\\' => 14,
+            'Cake\\Core\\' => 10,
+            'Cake\\Collection\\' => 16,
+            'Cake\\Cache\\' => 11,
+        ),
+        'A' => 
+        array (
+            'App\\' => 4,
         ),
     );
 
@@ -95,6 +123,22 @@ class ComposerStaticInitf2307da7649ba3879942c2dbd44b8d2d
         array (
             0 => __DIR__ . '/..' . '/symfony/polyfill-ctype',
         ),
+        'Symfony\\Component\\Yaml\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/symfony/yaml',
+        ),
+        'Symfony\\Component\\Filesystem\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/symfony/filesystem',
+        ),
+        'Symfony\\Component\\Console\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/symfony/console',
+        ),
+        'Symfony\\Component\\Config\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/symfony/config',
+        ),
         'SuperClosure\\' => 
         array (
             0 => __DIR__ . '/..' . '/jeremeamia/SuperClosure/src',
@@ -102,6 +146,10 @@ class ComposerStaticInitf2307da7649ba3879942c2dbd44b8d2d
         'Slim\\Views\\' => 
         array (
             0 => __DIR__ . '/..' . '/slim/twig-view/src',
+        ),
+        'Slim\\Flash\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/slim/flash/src',
         ),
         'Slim\\' => 
         array (
@@ -123,6 +171,10 @@ class ComposerStaticInitf2307da7649ba3879942c2dbd44b8d2d
         array (
             0 => __DIR__ . '/..' . '/php-di/phpdoc-reader/src/PhpDocReader',
         ),
+        'Phinx\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/robmorgan/phinx/src/Phinx',
+        ),
         'Invoker\\' => 
         array (
             0 => __DIR__ . '/..' . '/php-di/invoker/src',
@@ -134,6 +186,14 @@ class ComposerStaticInitf2307da7649ba3879942c2dbd44b8d2d
         'FastRoute\\' => 
         array (
             0 => __DIR__ . '/..' . '/nikic/fast-route/src',
+        ),
+        'Faker\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/fzaninotto/faker/src/Faker',
+        ),
+        'Egulias\\EmailValidator\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/egulias/email-validator/EmailValidator',
         ),
         'Doctrine\\Instantiator\\' => 
         array (
@@ -150,6 +210,34 @@ class ComposerStaticInitf2307da7649ba3879942c2dbd44b8d2d
         'DI\\' => 
         array (
             0 => __DIR__ . '/..' . '/php-di/php-di/src',
+        ),
+        'Cake\\Utility\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/cakephp/utility',
+        ),
+        'Cake\\Datasource\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/cakephp/datasource',
+        ),
+        'Cake\\Database\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/cakephp/database',
+        ),
+        'Cake\\Core\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/cakephp/core',
+        ),
+        'Cake\\Collection\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/cakephp/collection',
+        ),
+        'Cake\\Cache\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/cakephp/cache',
+        ),
+        'App\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/app',
         ),
     );
 
@@ -170,6 +258,13 @@ class ComposerStaticInitf2307da7649ba3879942c2dbd44b8d2d
             'Pimple' => 
             array (
                 0 => __DIR__ . '/..' . '/pimple/pimple/src',
+            ),
+        ),
+        'D' => 
+        array (
+            'Doctrine\\Common\\Lexer\\' => 
+            array (
+                0 => __DIR__ . '/..' . '/doctrine/lexer/lib',
             ),
         ),
     );

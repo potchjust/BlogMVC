@@ -1,0 +1,12 @@
+@import "bootstrap.css";
+@import "mdb.css";
+/**general rule**/
+*{
+    font-family: 'Helvetica Neue','Roboto','Lato Black';
+    margin: 0;
+    padding: 0;
+}
+.nav-link
+{
+    color: white;
+}
