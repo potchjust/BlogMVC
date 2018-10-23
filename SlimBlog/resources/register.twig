@@ -1,0 +1,72 @@
+{% extends 'templates/__front_layout.twig' %}
+
+{% block pagetitle %}
+    Page d'enregistrement
+
+{% endblock %}
+
+ {% block content %}
+
+     <!-- Material form register -->
+     {% if flash.error %}
+
+             <ul class="list-group list-group-flush">
+                 {% for error in flash.error %}
+                 <li class="list-group-item list-group-item-danger">{{ error }}</li>
+                 {% endfor %}
+             </ul>
+     {% endif %}
+     <div class="card">
+         <h5 class="card-header info-color white-text text-center py-4">
+             <strong>S'enregistrer</strong>
+         </h5>
+        {% if flash.success %}
+            <div class="alert alert-success">
+
+            </div>
+         {% endif %}
+         <!--Card content-->
+         <div class="card-body">
+             <!-- Form -->
+             <form class="text-center" action="{{ path_for('register') }}" style="color: #757575;" method="post">
+                 <div class="form-row">
+                     <div class="col">
+                         <!-- Last name -->
+                         <div class="md-form">
+                             <input type="text" name="name" id="nom" class="form-control">
+                             <label for="nom">Nom</label>
+                         </div>
+                     </div>
+                 </div>
+                 <!-- E-mail -->
+                 <div class="md-form mt-0">
+                     <input type="email" name="email" id="email" class="form-control">
+                     <label for="email">E-mail</label>
+                 </div>
+
+                 <!-- Password -->
+                 <div class="md-form">
+                     <input type="password" name="password" id="password"  class="form-control"
+                            aria-describedby="materialRegisterFormPasswordHelpBlock">
+                     <label for="password">Mot de passe</label>
+                 </div>
+                 <!--conf  Password -->
+                 <div class="md-form">
+                     <input type="password" name="conf_pass" id="conf_password" class="form-control">
+                     <label for="conf_password">Confirmez votre mot de passe</label>
+                 </div>
+
+
+                 <!-- Sign up button -->
+                 <button class="btn btn-outline-info btn-rounded btn-block my-4 waves-effect z-depth-0" type="submit">
+                     Soumettre
+                 </button>
+
+             </form>
+             <!-- Form -->
+
+         </div>
+
+     </div>
+     <!-- Material form register -->
+ {% endblock %}

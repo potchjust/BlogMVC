@@ -1,0 +1,6 @@
+.idea/
+../Blog/
+../exit
+vendor/
+composer.lock
+SlimBlog.iml
