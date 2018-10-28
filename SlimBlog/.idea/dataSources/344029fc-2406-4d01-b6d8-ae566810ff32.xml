@@ -1012,7 +1012,6 @@
     <column id="255" parent="248" name="author_token">
       <Position>5</Position>
       <DataType>varchar(100)|0s</DataType>
-      <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
     <key id="256" parent="248" name="PRIMARY">

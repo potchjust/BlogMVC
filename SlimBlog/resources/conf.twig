@@ -1,8 +1,11 @@
 {% extends 'templates/__front_layout.twig' %}
 {% block content %}
-    {% if flash.success %}
+
         <div class="alert alert-success">
-            {{ sd }}
+            {% if flash.success %}
+                {% for success in flash.success %}
+                     <p>{{ success }}</p>
+                {% endfor %}
+            {%endif%}
         </div>
-    {% endif %}
 {% endblock %}

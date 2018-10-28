@@ -9,22 +9,37 @@
 
      <!-- Material form register -->
      {% if flash.error %}
+         <ul class="list-group list-group-flush">
+             {% for error in flash.error %}
+                 {% if error.mailuse is defined %}
+                     <li class="list-group-item list-group-item-danger">
+                         {{ error.mailuse }}
+                     </li>
+                 {% else %}
+                     <li class="list-group-item list-group-item-danger">
+                         {{ error.name }}
+                     </li>
+                     <li class="list-group-item list-group-item-danger">
+                         {{ error.password }}
+                     </li>
+                     <li class="list-group-item list-group-item-danger">
+                         {{ error.mail }}
+                     </li>
+                 {% endif %}
+             {% endfor %}
 
-             <ul class="list-group list-group-flush">
-                 {% for error in flash.error %}
-                 <li class="list-group-item list-group-item-danger">{{ error }}</li>
-                 {% endfor %}
-             </ul>
+         </ul>
      {% endif %}
+     {% if flash.success %}
+         {% for success in flash.success %}
+             <p class="alert alert-success">{{ success }}</p>
+         {% endfor %}
+     {%endif%}
+
      <div class="card">
          <h5 class="card-header info-color white-text text-center py-4">
              <strong>S'enregistrer</strong>
          </h5>
-        {% if flash.success %}
-            <div class="alert alert-success">
-
-            </div>
-         {% endif %}
          <!--Card content-->
          <div class="card-body">
              <!-- Form -->
@@ -46,7 +61,7 @@
 
                  <!-- Password -->
                  <div class="md-form">
-                     <input type="password" name="password" id="password"  class="form-control"
+                     <input type="password" name="password" id="password" class="form-control"
                             aria-describedby="materialRegisterFormPasswordHelpBlock">
                      <label for="password">Mot de passe</label>
                  </div>

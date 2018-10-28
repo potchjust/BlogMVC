@@ -24,20 +24,20 @@ class PagesController extends Controller
 
     public function register(RequestInterface $request, ResponseInterface $response)
     {
-        // $flash=$this->flash->getMessage('error');
-
-       r(session_status());
-        return $this->render($response, 'register.twig', ['flash'=>$flash]);
+        $flash = $this->flash->getMessages();
+        return $this->render($response, 'register.twig', compact('flash'));
     }
 
     public function confirmation(RequestInterface $request, ResponseInterface $response)
     {
-        $flash=$this->flash->getMessage('success');
-        $this->render($response, 'conf.twig',compact('flash'));
+        $flash = $this->flash->getMessages();
+        $this->render($response, 'conf.twig', compact('flash'));
     }
 
     public function login(RequestInterface $request, ResponseInterface $response)
     {
-
+        $flash=$this->flash->getMessages();
+        r($flash);
+        $this->render($response,'login.twig',compact('flash'));
     }
 }

@@ -6,10 +6,15 @@
  * Time: 11:44
  */
 
+use App\Controller\Auth\ConfirmationController;
+use App\Controller\Auth\LoginController;
 use App\Controller\Auth\RegisterController;
 use App\Controller\Http\PagesController;
 
 $app->get('/', PagesController::class.':index')->setName('home');
 $app->get('/register', PagesController::class.':register')->setName('register');
 $app->post('/register', RegisterController::class.':register');
+$app->get('/login', PagesController::class.':login')->setName('login');
+$app->post('/login', LoginController::class.':login');
+$app->get('/confirm', ConfirmationController::class.':confirmation');
 $app->get('/confirmation', PagesController::class.':confirmation')->setName('confirmation');

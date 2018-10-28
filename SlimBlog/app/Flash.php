@@ -15,9 +15,29 @@ class Flash
      * @var Session
      */
     private $session;
+    /**
+     * @var \Twig_Environment
+     */
+    private $twig;
 
-    public function __construct(Session $session)
+    public function __construct(Session $session,\Twig_Environment $twig)
     {
         $this->session = $session;
+
+        $this->twig = $twig;
     }
+
+    public function addMessage($type,$content)
+    {
+        $this->session->set($type,$content);
+    }
+
+    public function getMessage($type)
+    {
+        return $this->session->get($type);
+    }
+
+
+
+
 }

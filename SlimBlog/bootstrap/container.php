@@ -20,24 +20,42 @@ $container['pdo'] = function ($container) {
         echo $exception->getMessage();
     }
 };
-$container['db'] = function ($container) {
+$container['db'] = function ($container):\App\Database {
     return new App\Database($container->pdo);
 };
-$container['auth'] = function ($container) {
+$container['auth'] = function ($container):\App\Auth {
     return new \App\Auth($container->db);
 };
-$container['flash'] = function ($container) {
-    return new Slim\Flash\Messages();
-};
+
 $container['view'] = function ($container) {
-    $path=dirname(__DIR__).'/resources';
+    $path = dirname(__DIR__) . '/resources';
     $view = new \Slim\Views\Twig($path, [
         'cache' => false,
-        'debug'=>true
+        'debug' => true
     ]);
     // Instantiate and add Slim specific extension
     $basePath = rtrim(str_ireplace('index.php', '', $container->get('request')->getUri()->getBasePath()), '/');
     $view->addExtension(new Slim\Views\TwigExtension($container->get('router'), $basePath));
     $view->addExtension(new Twig_Extension_Debug());
     return $view;
+};
+$container['session'] = function ($container):Session {
+    return new Session();
+};
+
+$container['flash']=function ($container):\Slim\Flash\Messages
+{
+    //return new \App\Flash($container->session,$container->view->getEnvironment());
+    return new \Slim\Flash\Messages();
+};
+
+$container['helpers']=function ()
+{
+    return new \App\Helpers();
+};
+$container['mailer']=function ()
+{
+    $transport=new Swift_SmtpTransport('localhost',1025);
+    $mailer=new Swift_Mailer($transport);
+    return $mailer;
 };

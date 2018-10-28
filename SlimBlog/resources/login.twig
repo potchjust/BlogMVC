@@ -1,0 +1,67 @@
+{% extends 'templates/__front_layout.twig' %}
+{% block content %}
+    <!-- Material form login -->
+    {% if flash.error %}
+
+        {% for error in flash.error %}
+            {% if error.field is defined %}
+                <p class="alert alert-danger">{{ error.field }}</p>
+            {% elseif error.notfound is defined %}
+                <p class="alert alert-danger">{{ error.notfound }}</p>
+            {% elseif error.notfound is defined %}
+                <p class="alert alert-danger">{{ error.pass_error}}</p>
+            {% elseif error.confirmation is defined %}
+                <p class="alert alert-danger">{{ error.confirmation}}</p>
+            {% endif %}
+        {% endfor %}
+    {% endif %}
+    <div class="card">
+
+        <h5 class="card-header info-color white-text text-center py-4">
+            <strong>Sign in</strong>
+        </h5>
+
+        <!--Card content-->
+        <div class="card-body px-lg-5 pt-0">
+
+            <!-- Form -->
+            <form class="text-center" method="post" style="color: #757575;">
+
+                <!-- Email -->
+                <div class="md-form">
+                    <input type="email" name="login_email" id="materialLoginFormEmail" class="form-control">
+                    <label for="materialLoginFormEmail">E-mail</label>
+                </div>
+
+                <!-- Password -->
+                <div class="md-form">
+                    <input type="password" name="login_pass" id="materialLoginFormPassword" class="form-control">
+                    <label for="materialLoginFormPassword">Mot de passe</label>
+                </div>
+
+                <div class="d-flex justify-content-around">
+                    <div>
+                        <!-- Forgot password -->
+                        <a href="">Mot de passe oublié?</a>
+                    </div>
+                </div>
+
+                <!-- Sign in button -->
+                <button class="btn btn-outline-info btn-rounded btn-block my-4 waves-effect z-depth-0" type="submit">Se
+                    connecter
+                </button>
+
+                <!-- Register -->
+                <p>Pas encore membre
+                    <a href={{ path_for('register') }}>S'enregister</a>
+                </p>
+
+
+            </form>
+            <!-- Form -->
+
+        </div>
+
+    </div>
+    <!-- Material form login -->
+{% endblock %}

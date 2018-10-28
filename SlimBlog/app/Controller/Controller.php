@@ -38,5 +38,15 @@ class Controller
         return $response->withStatus(302)->withHeader('Location',$this->router->pathFor($name));
     }
 
+    public function sendMail($subject,$sender="potchjust@gmail.com",$receiver,$message)
+    {
+        $mail= (new \Swift_Message($subject))
+            ->setFrom($sender)
+            ->setTo($receiver)
+            ->setBody($message);
+        $this->mailer->send($mail);
+    }
+
+
 
 }
