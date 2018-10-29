@@ -24,7 +24,7 @@ $container['db'] = function ($container):\App\Database {
     return new App\Database($container->pdo);
 };
 $container['auth'] = function ($container):\App\Auth {
-    return new \App\Auth($container->db);
+    return new \App\Auth();
 };
 
 $container['view'] = function ($container) {
@@ -59,3 +59,4 @@ $container['mailer']=function ()
     $mailer=new Swift_Mailer($transport);
     return $mailer;
 };
+r($container->get('auth'));

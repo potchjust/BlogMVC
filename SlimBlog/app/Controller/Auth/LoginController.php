@@ -23,6 +23,7 @@ class LoginController extends Controller
                     //si c'est correct  on verifie si le token est null
                     if ($user->author_token === null) {
                         //si le token est null le compte a été confirmé donc on redirige vers le home
+                        $this->session->set('user_id',$user->author_id);
                         return $this->redirect($response, 'home');
                     } else {
                         //sinon on dit au gars de vérifier son compte pour verifier son compte

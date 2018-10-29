@@ -19,6 +19,7 @@ class PagesController extends Controller
 
     public function index(RequestInterface $request, ResponseInterface $response)
     {
+        r($this->session->get('user_id'));
         $this->render($response, 'index.twig');
     }
 

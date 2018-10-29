@@ -16,17 +16,17 @@ class Auth
      */
     private $db;
 
-    public function __construct(Database $db)
+    public function __construct()
     {
-        $this->db = $db;
     }
-    public function login($mail,$pass)
+    public function chechlogged():bool
     {
-        $user=$this->db->query('select * from author where author_mail=? and author_pass=?',[$mail,$pass]);
-        if ($user)
+        if ($this->session->get('user_id')===true)
         {
-          return true;
+            return true;
+
         }
         return false;
     }
+
 }
