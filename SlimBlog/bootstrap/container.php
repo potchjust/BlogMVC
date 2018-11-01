@@ -23,9 +23,6 @@ $container['pdo'] = function ($container) {
 $container['db'] = function ($container):\App\Database {
     return new App\Database($container->pdo);
 };
-$container['auth'] = function ($container):\App\Auth {
-    return new \App\Auth();
-};
 
 $container['view'] = function ($container) {
     $path = dirname(__DIR__) . '/resources';
@@ -59,4 +56,6 @@ $container['mailer']=function ()
     $mailer=new Swift_Mailer($transport);
     return $mailer;
 };
-r($container->get('auth'));
+$container['auth']=function ($container):\App\Auth{
+  return new \App\Auth($container->session);
+};

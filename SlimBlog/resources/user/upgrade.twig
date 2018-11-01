@@ -1,0 +1,17 @@
+{% extends 'user/templates/Userlayout.twig' %}
+    {% block content %}
+        <div class="card">
+            <div class="card-header">
+                <p class="text-center">Modification de la catégorie nommé {{ category.category_name }}</p>
+            </div>
+            <div class="card-body">
+                <form action="{{ path_for('upgrade',{'id': category.category_id})}}" method="post">
+                    <label for="category_name">Nom de la catégorie </label>
+                    <input type="text" id="category_name" name='category_name' class="form-control" placeholder="{{ category.category_name }}"/>
+                    <input type="submit" class="btn btn-success" value="Mettre à jour">
+                </form>
+            </div>
+        </div>
+
+
+    {% endblock %}

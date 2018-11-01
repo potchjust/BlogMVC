@@ -12,14 +12,17 @@ namespace App;
 class Auth
 {
     /**
-     * @var Database
+     * @var Session
      */
-    private $db;
+    private $session;
 
-    public function __construct()
-    {
-    }
-    public function chechlogged():bool
+    public function __construct(Session $session)
+{
+
+    $this->session = $session;
+}
+
+    public function checklogged():bool
     {
         if ($this->session->get('user_id')===true)
         {

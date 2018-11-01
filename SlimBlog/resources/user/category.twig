@@ -1,0 +1,45 @@
+{% extends 'user/templates/Userlayout.twig' %}
+    {% block content %}
+        <p>
+            Bienvenue sur la page des catégories.Sur cette vous allez pouvoir éditer ajouter ou supprimer vos catégories
+        </p>
+        <div class="card">
+            {% if flash.success %}
+                {% for flash in flash.success %}
+                    {% if flash.success is defined %}
+                        <p class="alert alert-success">{{ flash.success }}</p>
+                    {% endif %}
+                {% endfor %}
+            {% endif %}
+            <div class="card-header">
+                <p class="text-center">Ajoutez une catégorie</p>
+            </div>
+            <div class="card-body">
+                <form class="form" method="post">
+                    <div class="md-form">
+                        <label for="category_name">Entrez le nom de votre catégorie </label>
+                        <input type="text" class="form-control" id="category_name" name="category_name">
+                    </div>
+                    <input type="submit" class="btn btn-outline-successs" value="Ajoutez">
+                </form>
+                <table class="table table-bordered">
+                    <tr>
+                        <th>id</th>
+                        <th>Nom de la catégorie</th>
+                        <th>action</th>
+                    </tr>
+                    {% for category in categories %}
+                    <tr>
+                        <td>{{ category.category_id }}</td>
+                        <td>{{ category.category_name }}</td>
+                        <td>
+                            <a href="{{ path_for('update',{'id': category.category_id}) }}" class="btn btn-outline-default">Mettre à jour</a>
+                            <a href="{{ path_for('delete',{'id': category.category_id}) }}" class="btn btn-outline-danger">Supprimez</a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </table>
+            </div>
+        </div>
+
+    {% endblock %}

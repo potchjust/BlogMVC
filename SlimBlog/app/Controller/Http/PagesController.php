@@ -19,26 +19,38 @@ class PagesController extends Controller
 
     public function index(RequestInterface $request, ResponseInterface $response)
     {
-        r($this->session->get('user_id'));
-        $this->render($response, 'index.twig');
+
+        $logged = $this->auth->checklogged();
+
+        $this->render($response, 'index.twig', compact('logged'));
     }
 
     public function register(RequestInterface $request, ResponseInterface $response)
     {
+        $logged = $this->auth->checklogged();
         $flash = $this->flash->getMessages();
         return $this->render($response, 'register.twig', compact('flash'));
     }
 
     public function confirmation(RequestInterface $request, ResponseInterface $response)
     {
+        $logged = $this->auth->checklogged();
         $flash = $this->flash->getMessages();
         $this->render($response, 'conf.twig', compact('flash'));
     }
 
     public function login(RequestInterface $request, ResponseInterface $response)
     {
-        $flash=$this->flash->getMessages();
-        r($flash);
-        $this->render($response,'login.twig',compact('flash'));
+        $logged = $this->auth->checklogged();
+        $flash = $this->flash->getMessages();
+
+        $this->render($response, 'login.twig', compact('flash'));
     }
+
+    public function home(RequestInterface $request, ResponseInterface $response)
+    {
+        $this->render($response, 'user/index.twig');
+    }
+
+
 }
