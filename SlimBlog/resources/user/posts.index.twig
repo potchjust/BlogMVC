@@ -1,0 +1,52 @@
+{% extends 'user/templates/Userlayout.twig' %}
+    {% block content %}
+        Bienvenue sur votre page d'administration.Sur cette page vous aurez à visualiser ,à modifier,à supprimer vos articles,
+        vos produits.Sur ce commencons
+        <div class="card">
+        {% if flash.success %}
+            {% for flash in flash.success %}
+                {% if flash.success is defined %}
+                    <p class="alert alert-success">{{ flash.success }}</p>
+                {% endif %}
+            {% endfor %}
+        {% endif %}
+        <div class="card-header">
+            <p class="text-center">Ajoutez un article</p>
+        </div>
+        <div class="card-body">
+        <form class="form" method="post" action="{{ path_for('posts.add') }}">
+            <div class="md-form">
+                <label for="category_name">Entrez le nom de votre article </label>
+                <input type="text" class="form-control" id="post_name" name="post_name">
+            </div>
+            <div class="md-form">
+                <label for="post_content">Entrez contenu de votre article </label>
+                <textarea type="text" class="form-control" id="post_content" name="post_content"></textarea>
+                {# catégorie #}
+                <select name="post_category" class="form-control" id="">
+                        {{ dump() }}
+                </select>
+            </div>
+            <input type="submit" class="btn btn-outline-success" value="Ajoutez">
+        </form>
+        <table class="table table-bordered">
+            <tr>
+                <th>Id de l'article</th>
+                <th>Nom de l'article</th>
+                <th>Date de création</th>
+                <th>Categorie</th>
+                <th>Auteur</th>
+            </tr>
+
+            {% for post in posts %}
+                <tr>
+                    <td>{{ post.post_id }}</td>
+                    <td>{{ post.post_name }}</td>
+                    <td>{{ post.created_at }}</td>
+                    <td>{{ post.category_name }}</td>
+                    <td>{{ post.author_name }}</td>
+                </tr>
+            {% endfor %}
+
+        </table>
+    {% endblock %}

@@ -26,7 +26,11 @@ class Session
 
     public function get($key)
     {
-        return isset($_SESSION[$key]);
+        if (isset($_SESSION[$key]))
+        {
+            return $_SESSION[$key];
+        }
+
     }
 
     public function destroy()

@@ -5,6 +5,7 @@ namespace App\Controller\Auth;
 use App\Controller\Controller;
 use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\ResponseInterface;
+use App\Model\User;
 
 class LoginController extends Controller
 {
@@ -16,7 +17,7 @@ class LoginController extends Controller
         $datas = $request->getParams();
 
         if (!empty($datas)) {
-            $user = $this->db->query('select * from author where author_mail=?', [$datas['login_email']]);
+            $user = $this->db->query('select * from author where author_mail=?', [$datas['login_email']], User::class,true);
             if ($user) {
                 //verification du mot de passe
                 if (password_verify($datas['login_pass'], $user->author_pass)) {

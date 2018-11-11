@@ -9,27 +9,35 @@
 namespace App;
 
 
+use Psr\Http\Message\RequestInterface;
+use Psr\Http\Message\ResponseInterface;
+
 class Auth
 {
     /**
      * @var Session
      */
+    private $container;
     private $session;
-
-    public function __construct(Session $session)
-{
-
-    $this->session = $session;
-}
-
-    public function checklogged():bool
+    private $connected=false;
+    public function __construct($container)
     {
-        if ($this->session->get('user_id')===true)
-        {
-            return true;
 
+        $this->container = $container;
+    }
+
+    public function checklogged(): bool
+    {
+        if ($this->container->get('user_id')) {
+            return true;
         }
         return false;
+    }
+
+    public function logout(RequestInterface $request,ResponseInterface $response)
+    {
+        session_destroy();
+        return $response->withStatus(302)->withHeader('Location', $this->container->router->pathFor('home'));
     }
 
 }

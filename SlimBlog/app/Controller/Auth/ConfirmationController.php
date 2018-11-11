@@ -21,7 +21,6 @@ class ConfirmationController extends Controller
     public function confirmation(RequestInterface $request, ResponseInterface $response)
     {
         $this->datas = $request->getParams();
-        r($this->datas);
         $user = $this->db->query('select * from author where author_id=? and author_token=?', [$this->datas['id'], $this->datas['token']]);
         if ($user) {
             $conf = $this->db->query('update author set author_token=null where author_id=? and author_token=?', [$this->datas['id'], $this->datas['token']]);
@@ -29,6 +28,5 @@ class ConfirmationController extends Controller
             $this->sendMail('Slim Blog:Confirmation de compte', 'potchjust@gmail.com', $user->author_mail, 'Votre compte a été confimé avec success');
             return $this->redirect($response, 'confirmation');
         }
-        $response->write('Ce sdsds');
     }
 }

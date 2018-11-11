@@ -19,8 +19,9 @@ class PagesController extends Controller
 
     public function index(RequestInterface $request, ResponseInterface $response)
     {
-
+        r($this->session->get('user_id'));
         $logged = $this->auth->checklogged();
+        r($logged);
 
         $this->render($response, 'index.twig', compact('logged'));
     }
@@ -49,6 +50,8 @@ class PagesController extends Controller
 
     public function home(RequestInterface $request, ResponseInterface $response)
     {
+        $logged = $this->auth->checklogged();
+        r($this->session->get('user_id'));
         $this->render($response, 'user/index.twig');
     }
 

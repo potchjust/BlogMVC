@@ -27,17 +27,20 @@ class Database
         $this->pdo = $pdo;
     }
 
-    public function query($statement,$attributes=false)
+    public function query($statement, $attributes = false, $class_name = false, $one = false)
     {
-        if ($attributes)
-        {
-          $request=$this->pdo->prepare($statement);
-          $request->setFetchMode(PDO::FETCH_OBJ);
-          $request->execute($attributes);
-          $datas=$request->fetch();
-        }else{
-            $request=$this->pdo->query($statement);
-            $datas=$request->fetchAll(PDO::FETCH_OBJ);
+        if ($attributes) {
+            $request = $this->pdo->prepare($statement);
+            $request->setFetchMode(PDO::FETCH_CLASS, $class_name);
+            $request->execute($attributes);
+            if ($one) {
+                $datas = $request->fetch();
+            } else {
+                $datas = $request->fetchAll();
+            }
+        } else {
+            $request = $this->pdo->query($statement);
+            $datas = $request->fetchAll(PDO::FETCH_CLASS, $class_name);
         }
         return $datas;
     }

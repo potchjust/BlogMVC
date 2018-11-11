@@ -11,6 +11,7 @@ use App\Controller\Auth\LoginController;
 use App\Controller\Auth\RegisterController;
 use App\Controller\Http\CategoryController;
 use App\Controller\Http\PagesController;
+use App\Controller\Http\PostController;
 
 $app->get('/', PagesController::class.':index')->setName('home');
 $app->get('/register', PagesController::class.':register')->setName('register');
@@ -20,9 +21,14 @@ $app->post('/login', LoginController::class.':login');
 $app->get('/confirm', ConfirmationController::class.':confirmation');
 $app->get('/confirmation', PagesController::class.':confirmation')->setName('confirmation');
 $app->get('/home', PagesController::class.':home')->setName('user.home');
+$app->get('/logout', \App\Auth::class.':logout')->setName('logout');
 //routes des catégories
 $app->get('/category',CategoryController::class.':index')->setName('category');
 $app->post('/category', CategoryController::class.':addcategory');
 $app->get('/update/{id}', CategoryController::class.':update')->setName('update');
 $app->post('/update/{id}', CategoryController::class.':upgrade')->setName('upgrade');
 $app->get('/delete/{id}', CategoryController::class.':delete')->setName('delete');
+
+//route des articles
+$app->get('/posts', PostController::class.':index')->setName('posts.index');
+$app->post('/post',PostController::class.':create')->setName('posts.add');

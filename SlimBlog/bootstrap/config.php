@@ -8,7 +8,7 @@
 
 return [
     'db'=>[
-        'name'=>'SlimBlog',
+        'name'=>'devlopment_slim_slimblog',
         'host'=>'localhost',
         'user'=>'root',
         'pass'=>'',

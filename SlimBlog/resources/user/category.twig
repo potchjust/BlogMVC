@@ -20,7 +20,7 @@
                         <label for="category_name">Entrez le nom de votre catégorie </label>
                         <input type="text" class="form-control" id="category_name" name="category_name">
                     </div>
-                    <input type="submit" class="btn btn-outline-successs" value="Ajoutez">
+                    <input type="submit" class="btn btn-outline-success" value="Ajoutez">
                 </form>
                 <table class="table table-bordered">
                     <tr>
@@ -28,16 +28,19 @@
                         <th>Nom de la catégorie</th>
                         <th>action</th>
                     </tr>
+
                     {% for category in categories %}
-                    <tr>
-                        <td>{{ category.category_id }}</td>
-                        <td>{{ category.category_name }}</td>
-                        <td>
-                            <a href="{{ path_for('update',{'id': category.category_id}) }}" class="btn btn-outline-default">Mettre à jour</a>
-                            <a href="{{ path_for('delete',{'id': category.category_id}) }}" class="btn btn-outline-danger">Supprimez</a>
-                        </td>
-                    </tr>
+                        <tr>
+                            <td>{{ category.category_id }}</td>
+                            <td>{{ category.category_name }}</td>
+                            <td>
+                                <a href="{{ path_for('update',{'id': category.category_id}) }}" class="btn btn-outline-default">Mettre à jour</a>
+                                <a href="{{ path_for('delete',{'id': category.category_id}) }}" class="btn btn-outline-danger">Supprimez</a>
+                            </td>
+                        </tr>
                     {% endfor %}
+
+
                 </table>
             </div>
         </div>

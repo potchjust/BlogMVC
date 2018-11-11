@@ -43,7 +43,7 @@ class RegisterController extends Controller
                     $user_id=$this->pdo->lastInsertId();
                     $this->flash->addMessage('success', 'Thank you ' . $this->datas['name'] . ' for registering to our services we send you aan email.Verify your email for completing your registration ');
                     $this->sendMail('Slim Blog', 'potchjust@gmail.com', $this->datas['email'], "Merci {$this->datas['name']} de vous être inscrit sur notre plateforme.Pour pouvoir accès à nos service veuillez confirmez votre compte en suivant le lien ci-dessous http://localhost:8000/confirm?id=$user_id&token=$token ");
-                    return $this->redirect($response, 'register');
+                    return $this->redirect($response, 'login');
                 }
             }
             $this->flash->addMessage('error', $this->errors);
